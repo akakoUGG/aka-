@@ -1,0 +1,1619 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <title>AKAKO MEDIA | African Stories. Global Reach.</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Inter & Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        akako: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857',
+                            800: '#065f46',
+                            900: '#064e3b',
+                            dark: '#0f172a',
+                            navy: '#0b1329',
+                            gold: '#f59e0b',
+                            accent: '#06d6a0'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Outfit', sans-serif; }
+        .ticker-wrap { width: 100%; overflow: hidden; white-space: nowrap; }
+        .ticker-move { display: inline-block; animation: ticker 35s linear infinite; }
+        .ticker-move:hover { animation-play-state: paused; }
+        @keyframes ticker {
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(-50%, 0, 0); }
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #059669; border-radius: 4px; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-akako-500 selection:text-white">
+
+    <script>
+        // Default Mock Data for Akako Media
+        const defaultState = {
+            stories: [
+                {
+                    id: "kampala-tech-summit-2026",
+                    title: "Kampala Tech Summit 2026 Kicks Off at Serena Hotel with Record Regional Startup Showcase",
+                    description: "Over 500 innovators, investors, and policymakers from across East Africa gathered in Kampala today to discuss artificial intelligence, fintech expansion, and digital infrastructure.",
+                    content: "KAMPALA — The annual Kampala Tech Summit opened its doors this morning at the Kampala Serena Hotel, drawing innovators, venture capitalists, and digital ministers from Uganda, Kenya, Tanzania, Rwanda, and beyond. This year's central theme, 'Scaling African Innovation for Global Impact,' highlights the rapid growth of the region's tech ecosystem.<br><br>Keynote speakers emphasized the need for cross-border regulatory harmonization to allow fintech startups and agritech pioneers to scale effortlessly across the East African Community (EAC) single market. Akako Media's reporting team is live on the ground capturing exclusive interviews with startup founders and regional tech leaders.",
+                    category: "Technology",
+                    country: "Uganda",
+                    type: "News",
+                    image: "https://placehold.co/1200x800/064e3b/ffffff?text=Kampala+Tech+Summit+2026",
+                    gallery: [
+                        "https://placehold.co/800x600/059669/ffffff?text=Delegates+At+Serena",
+                        "https://placehold.co/800x600/0f172a/ffffff?text=Startup+Exhibition+Floor"
+                    ],
+                    youtubeUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+                    author: "David Mugisha",
+                    date: "October 1, 2026 - 10:30 AM",
+                    tags: ["Tech", "Startups", "Kampala", "EAC"],
+                    seoTitle: "Kampala Tech Summit 2026 | Akako Media",
+                    seoDescription: "Live coverage of the Kampala Tech Summit 2026 at Serena Hotel featuring East African startup innovations and digital trade talks.",
+                    featured: true
+                },
+                {
+                    id: "eac-digital-trade-pact",
+                    title: "East African Community Signs Landmark Cross-Border Digital Trade Agreement",
+                    description: "The new framework eliminates roaming charges and simplifies cross-border e-commerce compliance across seven partner states.",
+                    content: "ARUSHA/KAMPALA — In a unanimous decision, the East African Community council of ministers signed a comprehensive digital trade protocol today. The agreement is designed to slash operational costs for digital enterprises and streamline cross-border mobile money transactions.",
+                    category: "Business",
+                    country: "Kenya",
+                    type: "News",
+                    image: "https://placehold.co/1200x800/0f172a/10b981?text=EAC+Digital+Trade+Pact",
+                    gallery: [],
+                    youtubeUrl: "",
+                    author: "Sarah Namubiru",
+                    date: "October 1, 2026 - 08:15 AM",
+                    tags: ["EAC", "Trade", "Economy", "MobileMoney"],
+                    seoTitle: "EAC Digital Trade Agreement Signed | Akako Media",
+                    seoDescription: "EAC nations sign a groundbreaking digital trade pact eliminating roaming fees and boosting e-commerce.",
+                    featured: false
+                },
+                {
+                    id: "nile-basin-renewable-energy",
+                    title: "Inside Uganda's Mega Hydro and Solar Integration Project Along the Nile",
+                    description: "How engineers are combining hydro generation with smart solar grids to power industrial parks in Jinja and Mukono.",
+                    content: "JINJA — Uganda continues to position itself as a renewable energy powerhouse in East Africa. Engineers working on the Nile basin grid expansion report that new solar-hydro hybrid stations are now feeding stable power directly into the national industrial transmission lines.",
+                    category: "Economy",
+                    country: "Uganda",
+                    type: "Documentary",
+                    image: "https://placehold.co/1200x800/10b981/ffffff?text=Nile+Renewable+Energy",
+                    gallery: [
+                        "https://placehold.co/800x600/047857/ffffff?text=Hydro+Dam+Turbines",
+                        "https://placehold.co/800x600/0b1329/ffffff?text=Solar+Farm+Aerial"
+                    ],
+                    youtubeUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+                    author: "Akako Documentary Unit",
+                    date: "September 28, 2026",
+                    tags: ["Energy", "Nile", "Uganda", "Sustainability"],
+                    seoTitle: "Uganda's Nile Renewable Energy Project | Akako Media",
+                    seoDescription: "Explore Uganda's ambitious hydro and solar integration project powering East African industrial growth.",
+                    featured: false
+                },
+                {
+                    id: "interview-dr-julius-kiiza",
+                    title: "Dr. Julius Kiiza on the Future of African Continental Free Trade Area (AfCFTA)",
+                    description: "An in-depth conversation on trade barriers, manufacturing value chains, and what small businesses in Kampala and Nairobi must know.",
+                    content: "KAMPALA STUDIO — In this exclusive Akako Interview, political economist Dr. Julius Kiiza breaks down the practical realities of the African Continental Free Trade Area. Hosted in our Kampala studio, the discussion dives deep into logistics bottlenecks and tariff reductions.",
+                    category: "Interview",
+                    country: "Uganda",
+                    type: "Interview",
+                    image: "https://placehold.co/1200x800/f59e0b/0f172a?text=Dr.+Julius+Kiiza+Interview",
+                    gallery: [],
+                    youtubeUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+                    author: "Grace Akello",
+                    date: "September 25, 2026",
+                    tags: ["AfCFTA", "Economy", "Interview", "Trade"],
+                    seoTitle: "Dr. Julius Kiiza Interview on AfCFTA | Akako Media",
+                    seoDescription: "Watch our exclusive Kampala studio interview with Dr. Julius Kiiza discussing AfCFTA and African economic integration.",
+                    featured: false
+                },
+                {
+                    id: "podcast-episode-12-kampala-creatives",
+                    title: "Podcast Ep. 12: The Rise of Kampala's Fashion and Film Renaissance",
+                    description: "We sit down with award-winning Ugandan filmmakers and fashion designers taking their craft to global streaming platforms.",
+                    content: "PODCAST ROOM KAMPALA — Kampala is buzzing with a new wave of creative energy. From indie filmmakers premiering on international festivals to sustainable fashion labels sourcing organic cotton locally, Episode 12 explores how East African creatives are building global brands.",
+                    category: "Podcast",
+                    country: "Uganda",
+                    type: "Podcast",
+                    image: "https://placehold.co/1200x800/8b5cf6/ffffff?text=Akako+Podcast+Ep+12",
+                    gallery: [],
+                    youtubeUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+                    author: "Brian Ssempijja",
+                    date: "September 22, 2026",
+                    tags: ["Podcast", "Culture", "Fashion", "Film"],
+                    seoTitle: "Kampala Creative Renaissance | Akako Podcast Ep. 12",
+                    seoDescription: "Listen to Episode 12 of the Akako Podcast featuring Kampala's leading filmmakers and fashion designers.",
+                    featured: false
+                },
+                {
+                    id: "live-show-east-africa-tonight",
+                    title: "East Africa Tonight: Regional Security, Tech Innovations & Cultural Exchange",
+                    description: "Our flagship live weekly broadcast breaking down the top stories shaping Uganda, Kenya, Tanzania, and Rwanda.",
+                    content: "LIVE FROM KAMPALA — Watch the full recording of this week's 'East Africa Tonight' interactive live show. Featuring expert panels in our Kampala studio and live callers from across the region.",
+                    category: "Live",
+                    country: "Uganda",
+                    type: "Live",
+                    image: "https://placehold.co/1200x800/ef4444/ffffff?text=East+Africa+Tonight+Live",
+                    gallery: [],
+                    youtubeUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+                    author: "Akako Live Broadcast Team",
+                    date: "Live Streamed Weekly",
+                    tags: ["Live", "News", "EastAfrica", "Debate"],
+                    seoTitle: "East Africa Tonight Live Show | Akako Media",
+                    seoDescription: "Catch up on Akako Media's flagship live broadcast covering regional politics, tech, and culture.",
+                    featured: false
+                },
+                {
+                    id: "photo-story-fishermen-lake-victoria",
+                    title: "Photo Story: Morning Mist on Lake Victoria Through the Eyes of Modern Fishermen",
+                    description: "A breathtaking visual gallery capturing the daily lives, resilience, and traditions of fishing communities on the shores of Entebbe.",
+                    content: "ENTEBBE — As dawn breaks over Lake Victoria, motorized wooden boats glide silently through the golden morning fog. Our photojournalism team spent a week documenting the fishermen of Entebbe and their vital role in feeding the region.",
+                    category: "Culture",
+                    country: "Uganda",
+                    type: "Photo Story",
+                    image: "https://placehold.co/1200x800/0284c7/ffffff?text=Lake+Victoria+Morning",
+                    gallery: [
+                        "https://placehold.co/800x600/0369a1/ffffff?text=Casting+Nets+at+Dawn",
+                        "https://placehold.co/800x600/075985/ffffff?text=Entebbe+Landing+Site",
+                        "https://placehold.co/800x600/0c4a6e/ffffff?text=The+Catch+of+the+Day"
+                    ],
+                    youtubeUrl: "",
+                    author: "Ronald Kigozi",
+                    date: "September 20, 2026",
+                    tags: ["Photography", "LakeVictoria", "Culture", "Uganda"],
+                    seoTitle: "Lake Victoria Fishermen Photo Story | Akako Media",
+                    seoDescription: "Stunning photo gallery documenting the lives of fishermen on the shores of Lake Victoria in Entebbe, Uganda.",
+                    featured: false
+                }
+            ],
+            subscribers: [
+                { email: "info@kampalainsider.com", date: "2026-09-30" },
+                { email: "sarah.n@eac-trade.org", date: "2026-09-29" }
+            ],
+            categories: ["News", "Politics", "Business", "Economy", "Africa", "World", "Entertainment", "Sports", "Health", "Education", "Technology", "Culture", "Documentary", "Interview", "Podcast", "Live"],
+            countries: ["Uganda", "Kenya", "Tanzania", "Rwanda", "Ethiopia", "Nigeria", "Ghana", "South Africa", "Democratic Republic of Congo", "Other African Countries"],
+            whatsappUrl: "https://whatsapp.com/channel/0029VbAvaXGLY6dG1rvkxW41"
+        };
+
+        // Load from localStorage or initialize
+        function getAppData() {
+            const saved = localStorage.getItem('akako_media_data');
+            if (saved) {
+                try { return JSON.parse(saved); } catch(e) { return defaultState; }
+            }
+            return defaultState;
+        }
+
+        function saveAppData(data) {
+            localStorage.setItem('akako_media_data', JSON.stringify(data));
+        }
+
+        let appData = getAppData();
+    </script>
+
+    <!-- Top Ticker Bar -->
+    <div class="bg-akako-navy text-white text-xs py-2 px-4 border-b border-akako-800">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <div class="flex items-center space-x-3 overflow-hidden">
+                <span class="bg-red-600 text-white font-bold px-2 py-0.5 rounded text-[10px] uppercase tracking-wider animate-pulse flex-shrink-0">
+                    <i class="fa-solid fa-bolt mr-1"></i> Breaking
+                </span>
+                <div class="ticker-wrap overflow-hidden whitespace-nowrap">
+                    <div class="ticker-move text-slate-200">
+                        <span class="mx-4">• Kampala Tech Summit 2026 kicks off at Serena Hotel with record regional startup showcase</span>
+                        <span class="mx-4">• East African Community signs landmark cross-border digital trade agreement</span>
+                        <span class="mx-4">• Akako Media studio in Kampala launches new Pan-African investigative documentary series</span>
+                        <span class="mx-4">• Join the official Akako WhatsApp channel for real-time news alerts!</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hidden md:flex items-center space-x-4 text-slate-300 flex-shrink-0">
+                <a href="https://www.youtube.com/@AKAKOmedia" target="_blank" class="hover:text-akako-500 transition"><i class="fa-brands fa-youtube"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=61592221366427" target="_blank" class="hover:text-akako-500 transition"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.instagram.com/akakonews2026/?hl=en" target="_blank" class="hover:text-akako-500 transition"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.tiktok.com/@akakomedia" target="_blank" class="hover:text-akako-500 transition"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="https://whatsapp.com/channel/0029VbAvaXGLY6dG1rvkxW41" target="_blank" class="text-akako-accent hover:underline font-semibold flex items-center"><i class="fa-brands fa-whatsapp mr-1"></i> WhatsApp</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Header & Branding -->
+    <header class="bg-white sticky top-0 z-40 shadow-sm border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
+            <!-- Logo Area -->
+            <div class="flex items-center space-x-3 cursor-pointer" onclick="switchView('home')">
+                <div class="w-12 h-12 bg-gradient-to-tr from-cyan-400 via-akako-500 to-amber-400 rounded-xl flex items-center justify-center text-white font-black text-2xl shadow-md">
+                    O
+                </div>
+                <div>
+                    <div class="flex items-center space-x-2">
+                        <span class="text-2xl font-extrabold tracking-tight text-akako-navy font-heading">AKAKO</span>
+                        <span class="text-xs bg-akako-100 text-akako-800 font-bold px-2 py-0.5 rounded-full uppercase">Media</span>
+                    </div>
+                    <div class="flex items-center space-x-1.5 text-[11px] text-slate-500 font-medium">
+                        <span>African Stories. Global Reach.</span>
+                        <span class="text-slate-300">•</span>
+                        <span class="text-akako-600 font-bold">ITS US</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Desktop Search Bar -->
+            <div class="hidden lg:flex items-center flex-1 max-w-md mx-8">
+                <div class="relative w-full">
+                    <input type="text" id="headerSearchInput" placeholder="Search news, videos, interviews, countries..." oninput="handleSearch(this.value)" class="w-full bg-slate-100 text-slate-800 text-sm rounded-full pl-10 pr-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-akako-500 border border-transparent focus:border-white transition">
+                    <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="flex items-center space-x-3">
+                <button onclick="openSubscribeModal()" class="hidden sm:inline-flex items-center bg-akako-500 hover:bg-akako-600 text-white text-sm font-semibold px-4 py-2 rounded-lg shadow-sm transition">
+                    <i class="fa-solid fa-envelope mr-2"></i> Subscribe
+                </button>
+                <a href="https://whatsapp.com/channel/0029VbAvaXGLY6dG1rvkxW41" target="_blank" class="hidden md:inline-flex items-center bg-emerald-700 hover:bg-emerald-800 text-white text-sm font-semibold px-4 py-2 rounded-lg shadow-sm transition">
+                    <i class="fa-brands fa-whatsapp mr-2 text-base"></i> WhatsApp
+                </a>
+                <button onclick="openAdminModal()" class="bg-akako-navy hover:bg-slate-800 text-white text-sm font-semibold px-4 py-2 rounded-lg shadow-sm transition flex items-center">
+                    <i class="fa-solid fa-gauge mr-2 text-akako-500"></i> CMS Admin
+                </button>
+                <button onclick="toggleMobileMenu()" class="lg:hidden text-slate-700 hover:text-akako-600 p-2 text-xl">
+                    <i class="fa-solid fa-bars" id="mobileMenuIcon"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Navigation Bar -->
+        <nav class="bg-akako-navy text-white px-4 sm:px-6 lg:px-8 hidden lg:block">
+            <div class="max-w-7xl mx-auto flex items-center justify-between text-sm font-medium">
+                <div class="flex items-center space-x-1 overflow-x-auto py-2">
+                    <button onclick="switchView('home')" class="nav-link px-3 py-1.5 rounded-lg hover:bg-white/10 transition text-akako-accent font-semibold" data-target="home">Home</button>
+                    <button onclick="filterCategory('News')" class="nav-link px-3 py-1.5 rounded-lg hover:bg-white/10 transition" data-target="News">News</button>
+                    <button onclick="filterCategory('Video')" class="nav-link px-3 py-1.5 rounded-lg hover:bg-white/10 transition" data-target="Video">Videos</button>
+                    <button onclick="filterCategory('Documentary')" class="nav-link px-3 py-1.5 rounded-lg hover:bg-white/10 transition" data-target="Documentary">Documentaries</button>
+                    <button onclick="filterCategory('Interview')" class="nav-link px-3 py-1.5 rounded-lg hover:bg-white/10 transition" data-target="Interview">Interviews</button>
+                    <button onclick="filterCategory('Podcast')" class="nav-link px-3 py-1.5 rounded-lg hover:bg-white/10 transition" data-target="Podcast">Podcasts</button>
+                    <button onclick="filterCategory('Live')" class="nav-link px-3 py-1.5 rounded-lg hover:bg-white/10 transition flex items-center"><span class="w-2 h-2 rounded-full bg-red-500 animate-ping mr-1.5"></span>Live</button>
+                    <button onclick="switchView('africa')" class="nav-link px-3 py-1.5 rounded-lg hover:bg-white/10 transition" data-target="africa">Africa</button>
+                    <button onclick="switchView('about')" class="nav-link px-3 py-1.5 rounded-lg hover:bg-white/10 transition" data-target="about">About</button>
+                    <button onclick="switchView('contact')" class="nav-link px-3 py-1.5 rounded-lg hover:bg-white/10 transition" data-target="contact">Contact</button>
+                </div>
+                <div class="text-xs text-slate-400 italic font-medium">
+                    Kampala, Uganda • Est. 2026
+                </div>
+            </div>
+        </nav>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobileMenu" class="hidden lg:hidden bg-akako-navy text-white px-4 pt-2 pb-4 space-y-2 border-t border-slate-800">
+            <div class="py-2">
+                <input type="text" placeholder="Search Akako Media..." oninput="handleSearch(this.value)" class="w-full bg-slate-800 text-white text-sm rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-akako-500">
+            </div>
+            <button onclick="switchView('home'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded hover:bg-white/10">Home</button>
+            <button onclick="filterCategory('News'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded hover:bg-white/10">News</button>
+            <button onclick="filterCategory('Video'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded hover:bg-white/10">Videos</button>
+            <button onclick="filterCategory('Documentary'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded hover:bg-white/10">Documentaries</button>
+            <button onclick="filterCategory('Interview'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded hover:bg-white/10">Interviews</button>
+            <button onclick="filterCategory('Podcast'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded hover:bg-white/10">Podcasts</button>
+            <button onclick="filterCategory('Live'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded hover:bg-white/10">Live Shows</button>
+            <button onclick="switchView('africa'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded hover:bg-white/10">Africa Section</button>
+            <button onclick="switchView('about'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded hover:bg-white/10">About Akako</button>
+            <button onclick="switchView('contact'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded hover:bg-white/10">Contact Us</button>
+            <div class="pt-2 flex flex-col space-y-2">
+                <button onclick="openSubscribeModal(); toggleMobileMenu();" class="w-full bg-akako-500 text-white text-center py-2 rounded-lg font-semibold"><i class="fa-solid fa-envelope mr-2"></i> Subscribe to Newsletter</button>
+                <a href="https://whatsapp.com/channel/0029VbAvaXGLY6dG1rvkxW41" target="_blank" class="w-full bg-emerald-700 text-white text-center py-2 rounded-lg font-semibold"><i class="fa-brands fa-whatsapp mr-2"></i> Join WhatsApp Channel</a>
+            </div>
+        </div>
+    </header>
+
+    <main id="mainContainer" class="min-h-screen pb-16">
+        <!-- Dynamically rendered views go here -->
+    </main>
+
+    <footer class="bg-akako-navy text-white pt-16 pb-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+                <!-- Col 1: Brand -->
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-10 h-10 bg-gradient-to-tr from-cyan-400 via-akako-500 to-amber-400 rounded-xl flex items-center justify-center text-white font-black text-xl shadow">
+                            O
+                        </div>
+                        <div>
+                            <span class="text-xl font-extrabold tracking-tight text-white font-heading">AKAKO MEDIA</span>
+                            <p class="text-[10px] text-akako-accent font-semibold">African Stories. Global Reach.</p>
+                        </div>
+                    </div>
+                    <p class="text-slate-400 text-sm mb-4 leading-relaxed">
+                        Akako Media is a premier African digital media group based in Kampala, Uganda, producing bold journalism, cinematic documentaries, interviews, podcasts, and live programming.
+                    </p>
+                    <div class="text-xs text-slate-400">
+                        <p class="mb-1"><strong class="text-white">Location:</strong> Kampala, Uganda</p>
+                        <p class="mb-1"><strong class="text-white">Operations:</strong> Online / Pan-Africa</p>
+                        <p class="mb-1"><strong class="text-white">Email:</strong> akakonews@gmail.com</p>
+                        <p><strong class="text-white">Phone:</strong> +256 743 556 628</p>
+                    </div>
+                </div>
+
+                <!-- Col 2: Quick Links -->
+                <div>
+                    <h3 class="text-lg font-bold mb-4 border-l-4 border-akako-500 pl-3">Navigation</h3>
+                    <ul class="space-y-2 text-sm text-slate-300">
+                        <li><button onclick="switchView('home')" class="hover:text-akako-accent transition">Home</button></li>
+                        <li><button onclick="filterCategory('News')" class="hover:text-akako-accent transition">Breaking & Latest News</button></li>
+                        <li><button onclick="filterCategory('Video')" class="hover:text-akako-accent transition">Video Stories</button></li>
+                        <li><button onclick="filterCategory('Documentary')" class="hover:text-akako-accent transition">Documentaries</button></li>
+                        <li><button onclick="filterCategory('Interview')" class="hover:text-akako-accent transition">Interviews</button></li>
+                        <li><button onclick="filterCategory('Podcast')" class="hover:text-akako-accent transition">Podcasts</button></li>
+                        <li><button onclick="filterCategory('Live')" class="hover:text-akako-accent transition">Live Shows</button></li>
+                        <li><button onclick="switchView('africa')" class="hover:text-akako-accent transition">Africa Section</button></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Legal & Info -->
+                <div>
+                    <h3 class="text-lg font-bold mb-4 border-l-4 border-akako-500 pl-3">About Akako</h3>
+                    <ul class="space-y-2 text-sm text-slate-300">
+                        <li><button onclick="switchView('about')" class="hover:text-akako-accent transition">About Akako Media</button></li>
+                        <li><button onclick="switchView('contact')" class="hover:text-akako-accent transition">Editorial Team & Studio</button></li>
+                        <li><a href="#" onclick="openPrivacyModal(event)" class="hover:text-akako-accent transition">Privacy Policy</a></li>
+                        <li><a href="#" onclick="openTermsModal(event)" class="hover:text-akako-accent transition">Terms of Service</a></li>
+                        <li><button onclick="openAdminModal()" class="text-akako-500 font-semibold hover:underline mt-2 block"><i class="fa-solid fa-gauge mr-1"></i> Publisher CMS Login</button></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Connect & WhatsApp -->
+                <div>
+                    <h3 class="text-lg font-bold mb-4 border-l-4 border-akako-500 pl-3">Stay Connected</h3>
+                    <p class="text-sm text-slate-300 mb-4">Join our community channel for instant breaking news straight to your phone.</p>
+                    <a href="https://whatsapp.com/channel/0029VbAvaXGLY6dG1rvkxW41" target="_blank" class="flex items-center justify-center bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-4 rounded-xl shadow-lg transition mb-4">
+                        <i class="fa-brands fa-whatsapp text-xl mr-2"></i> JOIN WHATSAPP CHANNEL
+                    </a>
+                    <div class="flex space-x-3 text-xl pt-2">
+                        <a href="https://www.youtube.com/@AKAKOmedia" target="_blank" class="w-10 h-10 bg-slate-800 hover:bg-akako-500 rounded-lg flex items-center justify-center transition"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=61592221366427" target="_blank" class="w-10 h-10 bg-slate-800 hover:bg-akako-500 rounded-lg flex items-center justify-center transition"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/akakonews2026/?hl=en" target="_blank" class="w-10 h-10 bg-slate-800 hover:bg-akako-500 rounded-lg flex items-center justify-center transition"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.tiktok.com/@akakomedia" target="_blank" class="w-10 h-10 bg-slate-800 hover:bg-akako-500 rounded-lg flex items-center justify-center transition"><i class="fa-brands fa-tiktok"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-slate-500">
+                <p>&copy; 2026 Akako Media Group. All rights reserved. Kampala, Uganda. African Stories. Global Reach.</p>
+                <p class="mt-2 md:mt-0">Designed for speed, mobile-first journalism & continuous publishing.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Subscribe Modal -->
+    <div id="subscribeModal" class="fixed inset-0 z-50 hidden bg-black/70 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl relative">
+            <button onclick="closeSubscribeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 text-xl"><i class="fa-solid fa-xmark"></i></button>
+            <div class="text-center mb-6">
+                <div class="w-12 h-12 bg-akako-100 text-akako-600 rounded-full flex items-center justify-center mx-auto mb-3 text-xl">
+                    <i class="fa-solid fa-envelope-open-text"></i>
+                </div>
+                <h3 class="text-2xl font-bold font-heading text-slate-900">AKAKO MEDIA • IT'S US</h3>
+                <p class="text-slate-600 text-sm mt-1">Get our latest stories, videos, and special reports directly in your inbox.</p>
+            </div>
+            <form onsubmit="handleSubscribeSubmit(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Your Full Name</label>
+                    <input type="text" id="subName" required placeholder="e.g. Namubiru Sarah" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2.5 text-sm focus:ring-2 focus:ring-akako-500 focus:outline-none">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Email Address</label>
+                    <input type="email" id="subEmail" required placeholder="name@example.com" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2.5 text-sm focus:ring-2 focus:ring-akako-500 focus:outline-none">
+                </div>
+                <button type="submit" class="w-full bg-akako-500 hover:bg-akako-600 text-white font-bold py-3 rounded-lg shadow transition">
+                    SUBSCRIBE TO AKAKO NEWSLETTER
+                </button>
+            </form>
+            <div class="mt-4 text-center text-xs text-slate-400">
+                We respect your privacy. Unsubscribe at any time.
+            </div>
+        </div>
+    </div>
+
+    <!-- Article Detail / Reader Modal -->
+    <div id="articleModal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm overflow-y-auto">
+        <div class="min-h-screen px-4 py-8 flex items-center justify-center">
+            <div class="bg-white rounded-2xl max-w-4xl w-full p-6 sm:p-10 shadow-2xl relative my-8">
+                <button onclick="closeArticleModal()" class="absolute top-4 right-4 bg-slate-100 hover:bg-slate-200 w-10 h-10 rounded-full flex items-center justify-center text-slate-700 text-xl transition"><i class="fa-solid fa-xmark"></i></button>
+                <div id="articleModalContent">
+                    <!-- Dynamic article content injected here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin / CMS Dashboard Modal -->
+    <div id="adminModal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm overflow-y-auto">
+        <div class="min-h-screen px-4 py-8 flex items-center justify-center">
+            <div class="bg-white rounded-2xl max-w-5xl w-full p-6 sm:p-8 shadow-2xl relative my-8">
+                <div class="flex items-center justify-between pb-4 border-b border-slate-200 mb-6">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 bg-akako-navy text-akako-500 rounded-lg flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-gauge"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-bold font-heading text-slate-900">Akako Newsroom CMS</h2>
+                            <p class="text-xs text-slate-500">Publisher Dashboard • Continuous Publishing System</p>
+                        </div>
+                    </div>
+                    <button onclick="closeAdminModal()" class="text-slate-400 hover:text-slate-700 text-2xl"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+
+                <!-- Admin Tabs -->
+                <div class="flex border-b border-slate-200 mb-6 space-x-4 text-sm font-semibold">
+                    <button onclick="switchAdminTab('stories')" id="tabBtnStories" class="pb-2 border-b-2 border-akako-500 text-akako-600 transition">Manage Stories (<span id="adminStoryCount">0</span>)</button>
+                    <button onclick="switchAdminTab('new')" id="tabBtnNew" class="pb-2 border-b-2 border-transparent text-slate-500 hover:text-slate-800 transition"><i class="fa-solid fa-plus text-akako-500 mr-1"></i> NEW STORY WIZARD</button>
+                    <button onclick="switchAdminTab('subscribers')" id="tabBtnSubs" class="pb-2 border-b-2 border-transparent text-slate-500 hover:text-slate-800 transition">Subscribers (<span id="adminSubCount">0</span>)</button>
+                </div>
+
+                <!-- Tab 1: Manage Stories -->
+                <div id="adminTabStories" class="space-y-4">
+                    <div class="flex justify-between items-center mb-4">
+                        <p class="text-sm text-slate-600">All published news, videos, documentaries, interviews, and photo stories.</p>
+                        <button onclick="switchAdminTab('new')" class="bg-akako-500 hover:bg-akako-600 text-white text-xs font-bold px-3 py-2 rounded-lg shadow transition">
+                            <i class="fa-solid fa-plus mr-1"></i> NEW STORY
+                        </button>
+                    </div>
+                    <div class="overflow-x-auto max-h-[500px] border border-slate-200 rounded-xl">
+                        <table class="w-full text-left text-sm text-slate-700">
+                            <thead class="bg-slate-100 text-xs uppercase font-bold text-slate-600 sticky top-0">
+                                <tr>
+                                    <th class="p-3">Title & Category</th>
+                                    <th class="p-3">Type</th>
+                                    <th class="p-3">Country</th>
+                                    <th class="p-3">Author</th>
+                                    <th class="p-3 text-right">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="adminStoriesTableBody" class="divide-y divide-slate-200">
+                                <!-- Injected dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Tab 2: New Story Creator Wizard -->
+                <div id="adminTabNew" class="hidden space-y-6">
+                    <form onsubmit="handlePublishStory(event)" class="space-y-4">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Content Type</label>
+                                <select id="formType" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-akako-500 focus:outline-none">
+                                    <option value="News">News</option>
+                                    <option value="Video">Video</option>
+                                    <option value="Documentary">Documentary</option>
+                                    <option value="Interview">Interview</option>
+                                    <option value="Podcast">Podcast</option>
+                                    <option value="Live">Live Show</option>
+                                    <option value="Photo Story">Photo Story</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Category</label>
+                                <select id="formCategory" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-akako-500 focus:outline-none">
+                                    <!-- Populated dynamically -->
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Africa Country / Region</label>
+                                <select id="formCountry" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-akako-500 focus:outline-none">
+                                    <!-- Populated dynamically -->
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Headline / Title *</label>
+                            <input type="text" id="formTitle" required placeholder="Enter compelling headline..." class="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-akako-500 focus:outline-none font-semibold">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Short Description / Subheading *</label>
+                            <textarea id="formDesc" rows="2" required placeholder="Summary for cards and previews..." class="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-akako-500 focus:outline-none"></textarea>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Full Article / Story Content *</label>
+                            <textarea id="formContent" rows="6" required placeholder="Write or paste full article body (HTML supported for paragraphs)..." class="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-akako-500 focus:outline-none font-mono"></textarea>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 bg-slate-50 p-4 rounded-xl border border-slate-200">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Featured Image Source</label>
+                                <div class="flex space-x-2">
+                                    <input type="url" id="formImage" placeholder="Paste image URL (or Google Drive share link)..." class="w-full bg-white border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-akako-500 focus:outline-none" value="https://placehold.co/1200x800/064e3b/ffffff?text=Akako+News+Story">
+                                </div>
+                                <p class="text-[11px] text-slate-500 mt-1">Tip: Paste any direct image link or Google Drive view link, or upload from computer below.</p>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Or Upload from Computer</label>
+                                <input type="file" id="formFile" accept="image/*" onchange="handleImageUpload(event)" class="w-full text-xs text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-akako-50 file:text-akako-700 hover:file:bg-akako-100">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 uppercase mb-1">YouTube Video URL (Optional)</label>
+                                <input type="url" id="formYoutube" placeholder="https://www.youtube.com/watch?v=..." class="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-akako-500 focus:outline-none">
+                                <p class="text-[11px] text-slate-500 mt-1">Auto-embeds player on website instantly.</p>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Additional Photo Gallery URLs (comma separated)</label>
+                                <input type="text" id="formGallery" placeholder="https://img1.jpg, https://img2.jpg" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-akako-500 focus:outline-none">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Author / Journalist</label>
+                                <input type="text" id="formAuthor" value="Akako Newsroom" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-akako-500 focus:outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Tags (comma separated)</label>
+                                <input type="text" id="formTags" placeholder="Uganda, Politics, Breaking" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-akako-500 focus:outline-none">
+                            </div>
+                            <div class="flex items-center pt-6">
+                                <label class="flex items-center space-x-2 cursor-pointer">
+                                    <input type="checkbox" id="formFeatured" class="w-4 h-4 text-akako-600 rounded focus:ring-akako-500">
+                                    <span class="text-sm font-bold text-slate-700">Set as Main Featured Breaking Story</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center justify-end space-x-3 pt-4 border-t border-slate-200">
+                            <button type="button" onclick="switchAdminTab('stories')" class="px-4 py-2 bg-slate-200 hover:bg-slate-300 text-slate-700 font-semibold rounded-lg text-sm transition">Cancel</button>
+                            <button type="submit" class="px-6 py-2 bg-akako-500 hover:bg-akako-600 text-white font-bold rounded-lg text-sm shadow transition">
+                                <i class="fa-solid fa-cloud-arrow-up mr-2"></i> PUBLISH NOW
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Tab 3: Subscribers -->
+                <div id="adminTabSubs" class="hidden space-y-4">
+                    <div class="flex justify-between items-center mb-4">
+                        <p class="text-sm text-slate-600">Newsletter subscriber database for Akako Media "It's Us".</p>
+                        <button onclick="exportSubscribers()" class="bg-slate-800 hover:bg-slate-900 text-white text-xs font-bold px-3 py-2 rounded-lg shadow transition">
+                            <i class="fa-solid fa-download mr-1"></i> Export List (CSV)
+                        </button>
+                    </div>
+                    <div class="overflow-x-auto max-h-[400px] border border-slate-200 rounded-xl">
+                        <table class="w-full text-left text-sm text-slate-700">
+                            <thead class="bg-slate-100 text-xs uppercase font-bold text-slate-600 sticky top-0">
+                                <tr>
+                                    <th class="p-3">#</th>
+                                    <th class="p-3">Email Address</th>
+                                    <th class="p-3">Subscription Date</th>
+                                </tr>
+                            </thead>
+                            <tbody id="adminSubsTableBody" class="divide-y divide-slate-200">
+                                <!-- Injected dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toastNotification" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 bg-akako-navy text-white px-6 py-3 rounded-xl shadow-2xl flex items-center space-x-3 border-l-4 border-akako-500">
+        <i class="fa-solid fa-circle-check text-akako-500 text-xl" id="toastIcon"></i>
+        <div>
+            <h4 class="font-bold text-sm" id="toastTitle">Success</h4>
+            <p class="text-xs text-slate-300" id="toastMsg">Action completed successfully.</p>
+        </div>
+    </div>
+
+    <script>
+        // Active View State
+        let currentView = 'home';
+        let currentCategoryFilter = null;
+        let currentCountryFilter = null;
+        let searchQuery = '';
+
+        // FIXED: YouTube Embed Helper using youtube-nocookie.com and strict referrer policy to prevent Error 153
+        function getYouTubeEmbedUrl(url) {
+            if (!url) return '';
+            let videoId = '';
+            if (url.includes('youtu.be/')) {
+                videoId = url.split('youtu.be/')[1]?.split('?')[0];
+            } else if (url.includes('watch?v=')) {
+                videoId = url.split('watch?v=')[1]?.split('&')[0];
+            } else if (url.includes('embed/')) {
+                videoId = url.split('embed/')[1]?.split('?')[0];
+            } else {
+                videoId = url.trim();
+            }
+            if (!videoId) videoId = 'dQw4w9WgXcQ'; // fallback
+            return `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=0&rel=0`;
+        }
+
+        // Initialize App on Load
+        window.onload = function() {
+            populateFormDropdowns();
+            renderCurrentView();
+            updateAdminCounts();
+        };
+
+        // Populate CMS dropdowns
+        function populateFormDropdowns() {
+            const catSelect = document.getElementById('formCategory');
+            if (catSelect) {
+                catSelect.innerHTML = appData.categories.map(c => `<option value="${c}">${c}</option>`).join('');
+            }
+            const countrySelect = document.getElementById('formCountry');
+            if (countrySelect) {
+                countrySelect.innerHTML = appData.countries.map(co => `<option value="${co}">${co}</option>`).join('');
+            }
+        }
+
+        // Switch Views
+        function switchView(viewName) {
+            currentView = viewName;
+            currentCategoryFilter = null;
+            currentCountryFilter = null;
+            searchQuery = '';
+            renderCurrentView();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function filterCategory(cat) {
+            currentView = 'category';
+            currentCategoryFilter = cat;
+            currentCountryFilter = null;
+            renderCurrentView();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function filterCountry(country) {
+            currentView = 'africa';
+            currentCountryFilter = country;
+            renderCurrentView();
+        }
+
+        function handleSearch(query) {
+            searchQuery = query.trim();
+            if (searchQuery.length > 0) {
+                currentView = 'search';
+                renderCurrentView();
+            } else if (currentView === 'search') {
+                switchView('home');
+            }
+        }
+
+        // Render Current View
+        function renderCurrentView() {
+            const container = document.getElementById('mainContainer');
+            if (!container) return;
+
+            if (currentView === 'home') {
+                container.innerHTML = renderHomePage();
+            } else if (currentView === 'category') {
+                container.innerHTML = renderCategoryPage(currentCategoryFilter);
+            } else if (currentView === 'africa') {
+                container.innerHTML = renderAfricaPage(currentCountryFilter);
+            } else if (currentView === 'about') {
+                container.innerHTML = renderAboutPage();
+            } else if (currentView === 'contact') {
+                container.innerHTML = renderContactPage();
+            } else if (currentView === 'search') {
+                container.innerHTML = renderSearchPage(searchQuery);
+            }
+        }
+
+        // 1. HOME PAGE RENDERER
+        function renderHomePage() {
+            const featuredStory = appData.stories.find(s => s.featured) || appData.stories[0];
+            const latestNews = appData.stories.filter(s => s.type === 'News' && s.id !== featuredStory?.id);
+            const videos = appData.stories.filter(s => s.youtubeUrl && s.type === 'Video');
+            const documentaries = appData.stories.filter(s => s.type === 'Documentary');
+            const interviews = appData.stories.filter(s => s.type === 'Interview');
+            const podcasts = appData.stories.filter(s => s.type === 'Podcast');
+            const lives = appData.stories.filter(s => s.type === 'Live');
+            const photoStories = appData.stories.filter(s => s.type === 'Photo Story');
+
+            return `
+                <!-- Hero Featured Breaking Story Section -->
+                <section class="bg-akako-navy text-white py-12 px-4 sm:px-6 lg:px-8 mb-12">
+                    <div class="max-w-7xl mx-auto">
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="flex items-center space-x-2">
+                                <span class="bg-akako-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                                    <i class="fa-solid fa-bolt mr-1"></i> Main Featured Breaking Story
+                                </span>
+                                <span class="text-slate-400 text-xs">• ${featuredStory ? featuredStory.date : 'Today'}</span>
+                            </div>
+                            <span class="text-xs text-akako-accent font-semibold hidden sm:inline">Akako Media • Kampala Newsroom</span>
+                        </div>
+                        ${featuredStory ? `
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                            <div class="lg:col-span-7 space-y-4">
+                                <div class="flex items-center space-x-2">
+                                    <span class="bg-akako-800 text-akako-100 text-xs px-2.5 py-1 rounded font-semibold">${featuredStory.category}</span>
+                                    <span class="text-slate-300 text-xs"><i class="fa-solid fa-location-dot mr-1 text-akako-500"></i> ${featuredStory.country || 'Uganda'}</span>
+                                </div>
+                                <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-heading leading-tight hover:text-akako-500 transition cursor-pointer" onclick="openArticle('${featuredStory.id}')">
+                                    ${featuredStory.title}
+                                </h1>
+                                <p class="text-slate-300 text-base sm:text-lg leading-relaxed">
+                                    ${featuredStory.description}
+                                </p>
+                                <div class="flex items-center space-x-4 pt-2">
+                                    <button onclick="openArticle('${featuredStory.id}')" class="bg-akako-500 hover:bg-akako-600 text-white font-bold px-6 py-3 rounded-xl shadow-lg transition flex items-center">
+                                        Read Full Story <i class="fa-solid fa-arrow-right ml-2"></i>
+                                    </button>
+                                    <span class="text-xs text-slate-400">By ${featuredStory.author}</span>
+                                </div>
+                            </div>
+                            <div class="lg:col-span-5">
+                                <div class="rounded-2xl overflow-hidden shadow-2xl border border-slate-700 relative group cursor-pointer" onclick="openArticle('${featuredStory.id}')">
+                                    <img src="${featuredStory.image}" alt="${featuredStory.title}" class="w-full h-80 object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/1200x800/064e3b/ffffff?text=Akako+Media'">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6">
+                                        <span class="text-white text-xs font-semibold bg-akako-500/90 px-3 py-1 rounded-full"><i class="fa-solid fa-camera mr-1"></i> Featured Photography</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        ` : '<p class="text-slate-400">No featured stories available yet.</p>'}
+                    </div>
+                </section>
+
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+                    
+                    <!-- Featured YouTube Video Section -->
+                    <section class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200">
+                        <div class="flex items-center justify-between mb-6">
+                            <div>
+                                <span class="text-xs font-bold text-akako-600 uppercase tracking-wider">Broadcast Studio</span>
+                                <h2 class="text-2xl font-bold font-heading text-slate-900">Featured YouTube Video</h2>
+                            </div>
+                            <a href="https://www.youtube.com/@AKAKOmedia" target="_blank" class="bg-red-600 hover:bg-red-700 text-white text-xs font-bold px-4 py-2 rounded-lg shadow transition flex items-center">
+                                <i class="fa-brands fa-youtube mr-1.5 text-base"></i> Watch on YouTube
+                            </a>
+                        </div>
+                        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
+                            <div class="lg:col-span-2">
+                                <div class="aspect-video w-full rounded-xl overflow-hidden shadow-lg bg-black">
+                                    <iframe src="${getYouTubeEmbedUrl(featuredStory?.youtubeUrl || 'https://www.youtube.com/watch?v=dQw4w9WgXcQ')}" class="w-full h-full" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                </div>
+                            </div>
+                            <div class="space-y-4">
+                                <span class="bg-red-100 text-red-700 text-xs font-bold px-3 py-1 rounded-full uppercase">Live From Kampala</span>
+                                <h3 class="text-xl font-bold font-heading text-slate-900">Akako Media Digital Studio Broadcast</h3>
+                                <p class="text-slate-600 text-sm leading-relaxed">
+                                    Watch our top-performing video broadcast covering East African trade, political developments, and cultural showcases. Subscribe to our YouTube channel for instant updates.
+                                </p>
+                                <a href="https://www.youtube.com/@AKAKOmedia" target="_blank" class="inline-flex items-center text-akako-600 font-bold hover:underline">
+                                    Subscribe to Akako on YouTube <i class="fa-solid fa-arrow-right ml-1"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Latest News & Updates Grid -->
+                    <section>
+                        <div class="flex items-center justify-between mb-6 border-b border-slate-200 pb-3">
+                            <h2 class="text-2xl font-bold font-heading text-slate-900 flex items-center">
+                                <span class="w-3 h-3 bg-akako-500 rounded-full mr-2"></span> Latest News Updates
+                            </h2>
+                            <button onclick="filterCategory('News')" class="text-xs font-bold text-akako-600 hover:underline">View All News →</button>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            ${latestNews.map(story => `
+                                <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md border border-slate-200 transition flex flex-col justify-between cursor-pointer group" onclick="openArticle('${story.id}')">
+                                    <div>
+                                        <div class="relative h-48 overflow-hidden bg-slate-100">
+                                            <img src="${story.image}" alt="${story.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" onerror="this.src='https://placehold.co/800x600/064e3b/ffffff?text=Akako'">
+                                            <span class="absolute top-3 left-3 bg-akako-navy text-white text-[11px] font-bold px-2.5 py-1 rounded">${story.category}</span>
+                                        </div>
+                                        <div class="p-5">
+                                            <div class="flex items-center space-x-2 text-xs text-slate-500 mb-2">
+                                                <span><i class="fa-regular fa-calendar mr-1"></i> ${story.date}</span>
+                                                <span>•</span>
+                                                <span><i class="fa-solid fa-location-dot mr-1"></i> ${story.country || 'Uganda'}</span>
+                                            </div>
+                                            <h3 class="text-lg font-bold font-heading text-slate-900 group-hover:text-akako-600 transition line-clamp-2 mb-2">
+                                                ${story.title}
+                                            </h3>
+                                            <p class="text-slate-600 text-sm line-clamp-3">
+                                                ${story.description}
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="px-5 pb-5 pt-2 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+                                        <span>By ${story.author}</span>
+                                        <span class="text-akako-600 font-semibold group-hover:translate-x-1 transition">Read Story →</span>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </section>
+
+                    <!-- Documentaries Section -->
+                    <section class="bg-akako-navy text-white rounded-3xl p-8 sm:p-12 shadow-xl">
+                        <div class="flex items-center justify-between mb-8">
+                            <div>
+                                <span class="text-xs font-bold text-akako-500 uppercase tracking-wider">Cinematic African Stories</span>
+                                <h2 class="text-3xl font-bold font-heading">Akako Documentaries</h2>
+                            </div>
+                            <button onclick="filterCategory('Documentary')" class="text-xs font-bold text-akako-500 hover:underline">View All Documentaries →</button>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            ${documentaries.map(doc => `
+                                <div class="bg-slate-800 rounded-2xl overflow-hidden border border-slate-700 shadow-lg flex flex-col justify-between group">
+                                    <div>
+                                        <div class="relative h-60 overflow-hidden">
+                                            <img src="${doc.image}" alt="${doc.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" onerror="this.src='https://placehold.co/800x600/064e3b/ffffff?text=Documentary'">
+                                            <div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+                                                <button onclick="openArticle('${doc.id}')" class="bg-akako-500 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg text-lg"><i class="fa-solid fa-play ml-0.5"></i></button>
+                                            </div>
+                                            <span class="absolute top-3 left-3 bg-amber-500 text-slate-900 text-xs font-bold px-2.5 py-1 rounded">Documentary</span>
+                                        </div>
+                                        <div class="p-6">
+                                            <div class="flex items-center space-x-2 text-xs text-slate-400 mb-2">
+                                                <span><i class="fa-solid fa-location-dot mr-1"></i> ${doc.country || 'Uganda'}</span>
+                                                <span>•</span>
+                                                <span>${doc.date}</span>
+                                            </div>
+                                            <h3 class="text-xl font-bold font-heading mb-2 text-white hover:text-akako-500 transition cursor-pointer" onclick="openArticle('${doc.id}')">${doc.title}</h3>
+                                            <p class="text-slate-300 text-sm line-clamp-2">${doc.description}</p>
+                                        </div>
+                                    </div>
+                                    <div class="px-6 pb-6 pt-2 flex items-center justify-between border-t border-slate-700 text-xs text-slate-400">
+                                        <span>Director: ${doc.author}</span>
+                                        <button onclick="openArticle('${doc.id}')" class="text-akako-500 font-bold hover:underline">Watch Documentary →</button>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </section>
+
+                    <!-- Interviews & Podcasts Grid -->
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+                        <!-- Interviews -->
+                        <section class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200">
+                            <div class="flex items-center justify-between mb-6">
+                                <h2 class="text-xl font-bold font-heading text-slate-900 flex items-center">
+                                    <i class="fa-solid fa-microphone-lines text-akako-600 mr-2"></i> Kampala Studio Interviews
+                                </h2>
+                                <button onclick="filterCategory('Interview')" class="text-xs font-bold text-akako-600 hover:underline">View All →</button>
+                            </div>
+                            <div class="space-y-4">
+                                ${interviews.map(inv => `
+                                    <div class="flex items-center space-x-4 p-4 rounded-xl hover:bg-slate-50 transition border border-slate-100 cursor-pointer" onclick="openArticle('${inv.id}')">
+                                        <img src="${inv.image}" alt="${inv.title}" class="w-20 h-20 rounded-xl object-cover flex-shrink-0" onerror="this.src='https://placehold.co/200x200/064e3b/ffffff?text=Guest'">
+                                        <div class="flex-1 min-w-0">
+                                            <span class="text-[11px] bg-akako-100 text-akako-800 font-bold px-2 py-0.5 rounded">Interview</span>
+                                            <h4 class="text-sm font-bold font-heading text-slate-900 truncate mt-1">${inv.title}</h4>
+                                            <p class="text-xs text-slate-500 line-clamp-1 mt-0.5">${inv.description}</p>
+                                            <div class="text-[10px] text-slate-400 mt-1">${inv.date}</div>
+                                        </div>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </section>
+
+                        <!-- Podcasts -->
+                        <section class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200">
+                            <div class="flex items-center justify-between mb-6">
+                                <h2 class="text-xl font-bold font-heading text-slate-900 flex items-center">
+                                    <i class="fa-solid fa-podcast text-purple-600 mr-2"></i> Akako Podcasts
+                                </h2>
+                                <button onclick="filterCategory('Podcast')" class="text-xs font-bold text-akako-600 hover:underline">View All →</button>
+                            </div>
+                            <div class="space-y-4">
+                                ${podcasts.map(pod => `
+                                    <div class="flex items-center space-x-4 p-4 rounded-xl hover:bg-slate-50 transition border border-slate-100 cursor-pointer" onclick="openArticle('${pod.id}')">
+                                        <img src="${pod.image}" alt="${pod.title}" class="w-20 h-20 rounded-xl object-cover flex-shrink-0" onerror="this.src='https://placehold.co/200x200/8b5cf6/ffffff?text=Podcast'">
+                                        <div class="flex-1 min-w-0">
+                                            <span class="text-[11px] bg-purple-100 text-purple-800 font-bold px-2 py-0.5 rounded">Podcast Episode</span>
+                                            <h4 class="text-sm font-bold font-heading text-slate-900 truncate mt-1">${pod.title}</h4>
+                                            <p class="text-xs text-slate-500 line-clamp-1 mt-0.5">${pod.description}</p>
+                                            <div class="text-[10px] text-slate-400 mt-1">${pod.date}</div>
+                                        </div>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </section>
+                    </div>
+
+                    <!-- Photo Stories / Visual News -->
+                    <section>
+                        <div class="flex items-center justify-between mb-6 border-b border-slate-200 pb-3">
+                            <h2 class="text-2xl font-bold font-heading text-slate-900 flex items-center">
+                                <i class="fa-solid fa-camera-retro text-akako-600 mr-2"></i> Photo Stories & Visual News
+                            </h2>
+                            <button onclick="filterCategory('Photo Story')" class="text-xs font-bold text-akako-600 hover:underline">View All Visual Stories →</button>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            ${photoStories.map(ps => `
+                                <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md border border-slate-200 transition cursor-pointer group" onclick="openArticle('${ps.id}')">
+                                    <div class="relative h-64 overflow-hidden bg-slate-900">
+                                        <img src="${ps.image}" alt="${ps.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-300 opacity-90" onerror="this.src='https://placehold.co/800x600/0284c7/ffffff?text=Photo'">
+                                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-6">
+                                            <span class="text-[10px] bg-sky-500 text-white font-bold px-2.5 py-1 rounded w-max mb-2">Photo Gallery</span>
+                                            <h3 class="text-base font-bold text-white group-hover:text-akako-accent transition line-clamp-2">${ps.title}</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </section>
+
+                    <!-- Newsletter & WhatsApp Section -->
+                    <section class="bg-gradient-to-r from-akako-navy to-emerald-900 rounded-3xl p-8 sm:p-12 text-white shadow-2xl relative overflow-hidden">
+                        <div class="absolute -right-10 -bottom-10 opacity-10 text-9xl">
+                            <i class="fa-solid fa-globe"></i>
+                        </div>
+                        <div class="max-w-3xl relative z-10 space-y-6">
+                            <span class="bg-akako-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase">Akako Media • It's Us</span>
+                            <h2 class="text-3xl sm:text-4xl font-extrabold font-heading">Get Our Latest Stories, Videos and Special Reports Directly in Your Inbox.</h2>
+                            <p class="text-slate-300 text-base">
+                                Join thousands of readers across Uganda, East Africa, and the globe who rely on Akako Media for independent, professional African journalism.
+                            </p>
+                            <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-3">
+                                <input type="email" id="homeSubEmail" placeholder="Enter your email address..." class="bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-slate-400 text-sm flex-1 focus:outline-none focus:ring-2 focus:ring-akako-500">
+                                <button onclick="handleHomeSubscribe()" class="bg-akako-500 hover:bg-akako-600 text-white font-bold px-8 py-3 rounded-xl shadow transition">
+                                    SUBSCRIBE NOW
+                                </button>
+                            </div>
+                            <div class="pt-2 flex flex-wrap gap-4 items-center">
+                                <span class="text-xs text-slate-300 font-semibold">Or join our instant channel:</span>
+                                <a href="https://whatsapp.com/channel/0029VbAvaXGLY6dG1rvkxW41" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold px-4 py-2 rounded-lg shadow transition flex items-center">
+                                    <i class="fa-brands fa-whatsapp mr-1.5 text-base"></i> Join Akako WhatsApp Channel
+                                </a>
+                            </div>
+                        </div>
+                    </section>
+
+                </div>
+            `;
+        }
+
+        // 2. CATEGORY PAGE
+        function renderCategoryPage(categoryName) {
+            const filtered = appData.stories.filter(s => s.category.toLowerCase() === categoryName.toLowerCase() || s.type.toLowerCase() === categoryName.toLowerCase());
+            return `
+                <div class="bg-akako-navy text-white py-12 px-4 sm:px-6 lg:px-8 mb-12">
+                    <div class="max-w-7xl mx-auto">
+                        <span class="text-xs text-akako-500 font-bold uppercase tracking-wider">Akako Category Archive</span>
+                        <h1 class="text-3xl sm:text-4xl font-extrabold font-heading mt-2">${categoryName}</h1>
+                        <p class="text-slate-300 text-sm mt-1">Showing all stories and media tagged under ${categoryName}.</p>
+                    </div>
+                </div>
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    ${filtered.length === 0 ? `
+                        <div class="text-center py-16 bg-white rounded-2xl border border-slate-200">
+                            <i class="fa-solid fa-folder-open text-4xl text-slate-300 mb-3"></i>
+                            <h3 class="text-lg font-bold text-slate-800">No stories found in this category yet.</h3>
+                            <p class="text-slate-500 text-sm mt-1">Publish a new ${categoryName} story using the CMS Admin dashboard.</p>
+                            <button onclick="openAdminModal(); switchAdminTab('new');" class="mt-4 bg-akako-500 text-white px-4 py-2 rounded-lg text-sm font-semibold">Publish New Story</button>
+                        </div>
+                    ` : `
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            ${filtered.map(story => `
+                                <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md border border-slate-200 transition cursor-pointer group" onclick="openArticle('${story.id}')">
+                                    <div class="relative h-48 overflow-hidden bg-slate-100">
+                                        <img src="${story.image}" alt="${story.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" onerror="this.src='https://placehold.co/800x600/064e3b/ffffff?text=Akako'">
+                                        <span class="absolute top-3 left-3 bg-akako-navy text-white text-[11px] font-bold px-2.5 py-1 rounded">${story.category}</span>
+                                    </div>
+                                    <div class="p-5">
+                                        <div class="flex items-center space-x-2 text-xs text-slate-500 mb-2">
+                                            <span><i class="fa-regular fa-calendar mr-1"></i> ${story.date}</span>
+                                            <span>•</span>
+                                            <span><i class="fa-solid fa-location-dot mr-1"></i> ${story.country || 'Uganda'}</span>
+                                        </div>
+                                        <h3 class="text-lg font-bold font-heading text-slate-900 group-hover:text-akako-600 transition line-clamp-2 mb-2">
+                                            ${story.title}
+                                        </h3>
+                                        <p class="text-slate-600 text-sm line-clamp-3">
+                                            ${story.description}
+                                        </p>
+                                    </div>
+                                    <div class="px-5 pb-5 pt-2 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+                                        <span>By ${story.author}</span>
+                                        <span class="text-akako-600 font-semibold">Read Story →</span>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    `}
+                </div>
+            `;
+        }
+
+        // 3. AFRICA SECTION
+        function renderAfricaPage(selectedCountry) {
+            const countries = appData.countries;
+            const activeCountry = selectedCountry || 'Uganda';
+            const countryStories = appData.stories.filter(s => s.country.toLowerCase() === activeCountry.toLowerCase());
+
+            return `
+                <div class="bg-akako-navy text-white py-12 px-4 sm:px-6 lg:px-8 mb-8">
+                    <div class="max-w-7xl mx-auto">
+                        <span class="text-xs text-akako-500 font-bold uppercase tracking-wider">Pan-African Network</span>
+                        <h1 class="text-3xl sm:text-4xl font-extrabold font-heading mt-2">Akako Africa Section</h1>
+                        <p class="text-slate-300 text-sm mt-1">Stories, interviews, and reports organized by African countries and regions.</p>
+                    </div>
+                </div>
+
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+                    <!-- Country Filter Tabs -->
+                    <div class="flex flex-wrap gap-2 pb-4 border-b border-slate-200">
+                        ${countries.map(c => `
+                            <button onclick="filterCountry('${c}')" class="px-4 py-2 rounded-xl text-sm font-semibold transition ${activeCountry === c ? 'bg-akako-500 text-white shadow' : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'}">
+                                ${c}
+                            </button>
+                        `).join('')}
+                    </div>
+
+                    <div>
+                        <h2 class="text-2xl font-bold font-heading text-slate-900 mb-6 flex items-center">
+                            <i class="fa-solid fa-earth-africa text-akako-600 mr-2"></i> Coverage for ${activeCountry}
+                        </h2>
+                        ${countryStories.length === 0 ? `
+                            <div class="text-center py-16 bg-white rounded-2xl border border-slate-200">
+                                <i class="fa-solid fa-newspaper text-4xl text-slate-300 mb-3"></i>
+                                <h3 class="text-lg font-bold text-slate-800">No stories currently published for ${activeCountry}.</h3>
+                                <p class="text-slate-500 text-sm mt-1">Administrators can easily publish stories for ${activeCountry} via the CMS.</p>
+                                <button onclick="openAdminModal(); switchAdminTab('new');" class="mt-4 bg-akako-500 text-white px-4 py-2 rounded-lg text-sm font-semibold">Publish for ${activeCountry}</button>
+                            </div>
+                        ` : `
+                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                ${countryStories.map(story => `
+                                    <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md border border-slate-200 transition cursor-pointer group" onclick="openArticle('${story.id}')">
+                                        <div class="relative h-48 overflow-hidden bg-slate-100">
+                                            <img src="${story.image}" alt="${story.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" onerror="this.src='https://placehold.co/800x600/064e3b/ffffff?text=Akako'">
+                                            <span class="absolute top-3 left-3 bg-akako-navy text-white text-[11px] font-bold px-2.5 py-1 rounded">${story.category}</span>
+                                        </div>
+                                        <div class="p-5">
+                                            <div class="flex items-center space-x-2 text-xs text-slate-500 mb-2">
+                                                <span><i class="fa-regular fa-calendar mr-1"></i> ${story.date}</span>
+                                                <span>•</span>
+                                                <span class="text-akako-600 font-bold">${story.country}</span>
+                                            </div>
+                                            <h3 class="text-lg font-bold font-heading text-slate-900 group-hover:text-akako-600 transition line-clamp-2 mb-2">
+                                                ${story.title}
+                                            </h3>
+                                            <p class="text-slate-600 text-sm line-clamp-3">
+                                                ${story.description}
+                                            </p>
+                                        </div>
+                                        <div class="px-5 pb-5 pt-2 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+                                            <span>By ${story.author}</span>
+                                            <span class="text-akako-600 font-semibold">Read Story →</span>
+                                        </div>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        `}
+                    </div>
+                </div>
+            `;
+        }
+
+        // 4. ABOUT PAGE
+        function renderAboutPage() {
+            return `
+                <div class="bg-akako-navy text-white py-16 px-4 sm:px-6 lg:px-8 mb-12">
+                    <div class="max-w-4xl mx-auto text-center space-y-4">
+                        <span class="bg-akako-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase">About Akako Media Group</span>
+                        <h1 class="text-4xl sm:text-5xl font-extrabold font-heading">African Stories. Global Reach.</h1>
+                        <p class="text-slate-300 text-lg leading-relaxed">
+                            Akako Media is an African digital media group based in Kampala, Uganda, dedicated to telling authentic stories from Uganda, East Africa, and across the continent.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+                    <div class="bg-white rounded-3xl p-8 sm:p-12 shadow-sm border border-slate-200 space-y-6">
+                        <h2 class="text-2xl font-bold font-heading text-slate-900 border-l-4 border-akako-500 pl-3">Our Mission & Vision</h2>
+                        <p class="text-slate-700 leading-relaxed">
+                            Akako operates online and maintains a state-of-the-art video production studio in Kampala, Uganda. From our Kampala hub, our journalists, producers, and filmmakers create high-impact interviews, cinematic documentaries, breaking news packages, live broadcasts, and insightful economic analyses.
+                        </p>
+                        <p class="text-slate-700 leading-relaxed">
+                            Our long-term vision is to grow Akako into a trusted, independent African media platform bridging the gap between local narratives and global audiences.
+                        </p>
+
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-6">
+                            <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200">
+                                <div class="w-12 h-12 bg-akako-100 text-akako-600 rounded-xl flex items-center justify-center text-xl mb-4">
+                                    <i class="fa-solid fa-video"></i>
+                                </div>
+                                <h3 class="font-bold text-slate-900 mb-2">Kampala Studio</h3>
+                                <p class="text-sm text-slate-600">Equipped for professional podcasts, talk shows, live streams, and documentary editing.</p>
+                            </div>
+                            <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200">
+                                <div class="w-12 h-12 bg-akako-100 text-akako-600 rounded-xl flex items-center justify-center text-xl mb-4">
+                                    <i class="fa-solid fa-earth-africa"></i>
+                                </div>
+                                <h3 class="font-bold text-slate-900 mb-2">Pan-African Reach</h3>
+                                <p class="text-sm text-slate-600">Covering East Africa, the EAC trade bloc, and continental developments in business and tech.</p>
+                            </div>
+                            <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200">
+                                <div class="w-12 h-12 bg-akako-100 text-akako-600 rounded-xl flex items-center justify-center text-xl mb-4">
+                                    <i class="fa-solid fa-bolt"></i>
+                                </div>
+                                <h3 class="font-bold text-slate-900 mb-2">Continuous Newsroom</h3>
+                                <p class="text-sm text-slate-600">Built for fast publishing by journalists without technical barriers.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // 5. CONTACT PAGE
+        function renderContactPage() {
+            return `
+                <div class="bg-akako-navy text-white py-16 px-4 sm:px-6 lg:px-8 mb-12">
+                    <div class="max-w-4xl mx-auto text-center space-y-4">
+                        <span class="bg-akako-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase">Get in Touch</span>
+                        <h1 class="text-4xl sm:text-5xl font-extrabold font-heading">Contact Akako Media</h1>
+                        <p class="text-slate-300 text-lg">We welcome story tips, interview requests, media partnerships, and advertising inquiries.</p>
+                    </div>
+                </div>
+
+                <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-10 mb-16">
+                    <div class="bg-white rounded-3xl p-8 shadow-sm border border-slate-200 space-y-6">
+                        <h2 class="text-2xl font-bold font-heading text-slate-900">Studio Headquarters</h2>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Visit our video production studio and digital newsroom in Kampala, Uganda, or reach out directly via email and phone.
+                        </p>
+                        <div class="space-y-4 text-sm text-slate-700">
+                            <div class="flex items-start space-x-3">
+                                <i class="fa-solid fa-location-dot text-akako-600 text-lg mt-1"></i>
+                                <div>
+                                    <strong class="block text-slate-900">Location</strong>
+                                    <span>Kampala, Central Region, Uganda</span>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <i class="fa-solid fa-envelope text-akako-600 text-lg mt-1"></i>
+                                <div>
+                                    <strong class="block text-slate-900">Email Address</strong>
+                                    <span>akakonews@gmail.com</span>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <i class="fa-solid fa-phone text-akako-600 text-lg mt-1"></i>
+                                <div>
+                                    <strong class="block text-slate-900">Phone & WhatsApp</strong>
+                                    <span>+256 743 556 628</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pt-4">
+                            <a href="https://whatsapp.com/channel/0029VbAvaXGLY6dG1rvkxW41" target="_blank" class="inline-flex items-center bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-5 py-3 rounded-xl shadow transition">
+                                <i class="fa-brands fa-whatsapp text-lg mr-2"></i> Join WhatsApp Channel
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-3xl p-8 shadow-sm border border-slate-200 space-y-6">
+                        <h2 class="text-2xl font-bold font-heading text-slate-900">Send Us a Message</h2>
+                        <form onsubmit="handleContactSubmit(event)" class="space-y-4">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Your Name</label>
+                                <input type="text" required placeholder="Full Name" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-akako-500 focus:outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Email Address</label>
+                                <input type="email" required placeholder="name@example.com" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-akako-500 focus:outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Message</label>
+                                <textarea rows="4" required placeholder="How can we assist you..." class="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-akako-500 focus:outline-none"></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-akako-500 hover:bg-akako-600 text-white font-bold py-3 rounded-lg shadow transition">
+                                SEND MESSAGE
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            `;
+        }
+
+        // 6. SEARCH RESULTS PAGE
+        function renderSearchPage(query) {
+            const q = query.toLowerCase();
+            const results = appData.stories.filter(s => 
+                s.title.toLowerCase().includes(q) || 
+                s.description.toLowerCase().includes(q) || 
+                s.category.toLowerCase().includes(q) || 
+                s.country.toLowerCase().includes(q) ||
+                s.tags.some(t => t.toLowerCase().includes(q))
+            );
+
+            return `
+                <div class="bg-akako-navy text-white py-12 px-4 sm:px-6 lg:px-8 mb-12">
+                    <div class="max-w-7xl mx-auto">
+                        <span class="text-xs text-akako-500 font-bold uppercase tracking-wider">Search Results</span>
+                        <h1 class="text-3xl sm:text-4xl font-extrabold font-heading mt-2">Search: "${query}"</h1>
+                        <p class="text-slate-300 text-sm mt-1">Found ${results.length} matching stories, videos, and reports.</p>
+                    </div>
+                </div>
+
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    ${results.length === 0 ? `
+                        <div class="text-center py-16 bg-white rounded-2xl border border-slate-200">
+                            <i class="fa-solid fa-magnifying-glass text-4xl text-slate-300 mb-3"></i>
+                            <h3 class="text-lg font-bold text-slate-800">No results found for "${query}".</h3>
+                            <p class="text-slate-500 text-sm mt-1">Try searching for other topics like "Tech", "Uganda", "Economy", or "Interview".</p>
+                        </div>
+                    ` : `
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            ${results.map(story => `
+                                <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md border border-slate-200 transition cursor-pointer group" onclick="openArticle('${story.id}')">
+                                    <div class="relative h-48 overflow-hidden bg-slate-100">
+                                        <img src="${story.image}" alt="${story.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" onerror="this.src='https://placehold.co/800x600/064e3b/ffffff?text=Akako'">
+                                        <span class="absolute top-3 left-3 bg-akako-navy text-white text-[11px] font-bold px-2.5 py-1 rounded">${story.category}</span>
+                                    </div>
+                                    <div class="p-5">
+                                        <div class="flex items-center space-x-2 text-xs text-slate-500 mb-2">
+                                            <span><i class="fa-regular fa-calendar mr-1"></i> ${story.date}</span>
+                                            <span>•</span>
+                                            <span><i class="fa-solid fa-location-dot mr-1"></i> ${story.country}</span>
+                                        </div>
+                                        <h3 class="text-lg font-bold font-heading text-slate-900 group-hover:text-akako-600 transition line-clamp-2 mb-2">
+                                            ${story.title}
+                                        </h3>
+                                        <p class="text-slate-600 text-sm line-clamp-3">
+                                            ${story.description}
+                                        </p>
+                                    </div>
+                                    <div class="px-5 pb-5 pt-2 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+                                        <span>By ${story.author}</span>
+                                        <span class="text-akako-600 font-semibold">Read Story →</span>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    `}
+                </div>
+            `;
+        }
+
+        // ARTICLE READER MODAL
+        function openArticle(storyId) {
+            const story = appData.stories.find(s => s.id === storyId);
+            if (!story) return;
+
+            const modalContent = document.getElementById('articleModalContent');
+            modalContent.innerHTML = `
+                <div class="space-y-6">
+                    <div class="flex items-center justify-between flex-wrap gap-2">
+                        <div class="flex items-center space-x-2">
+                            <span class="bg-akako-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase">${story.category}</span>
+                            <span class="bg-slate-100 text-slate-700 text-xs font-bold px-3 py-1 rounded-full"><i class="fa-solid fa-location-dot mr-1 text-akako-600"></i> ${story.country || 'Uganda'}</span>
+                        </div>
+                        <span class="text-xs text-slate-400"><i class="fa-regular fa-calendar mr-1"></i> ${story.date}</span>
+                    </div>
+
+                    <h1 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-heading text-slate-900 leading-tight">
+                        ${story.title}
+                    </h1>
+
+                    <div class="flex items-center justify-between border-y border-slate-200 py-3 text-xs text-slate-600">
+                        <div>By <strong class="text-slate-900">${story.author}</strong> • Akako Newsroom Kampala</div>
+                        <div class="flex space-x-3 text-sm">
+                            <a href="https://twitter.com/intent/tweet?text=${encodeURIComponent(story.title)}" target="_blank" class="hover:text-akako-600"><i class="fa-brands fa-twitter"></i></a>
+                            <a href="https://www.facebook.com/sharer/sharer.php" target="_blank" class="hover:text-akako-600"><i class="fa-brands fa-facebook"></i></a>
+                            <a href="https://whatsapp.com/send?text=${encodeURIComponent(story.title + ' - Read on Akako Media')}" target="_blank" class="hover:text-emerald-600"><i class="fa-brands fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="rounded-2xl overflow-hidden shadow-lg bg-slate-100 max-h-[450px]">
+                        <img src="${story.image}" alt="${story.title}" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/1200x800/064e3b/ffffff?text=Akako+Media'">
+                    </div>
+
+                    ${story.youtubeUrl ? `
+                        <div class="aspect-video w-full rounded-2xl overflow-hidden shadow-lg bg-black my-6">
+                            <iframe src="${getYouTubeEmbedUrl(story.youtubeUrl)}" class="w-full h-full" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                    ` : ''}
+
+                    <div class="prose max-w-none text-slate-800 text-base sm:text-lg leading-relaxed space-y-4">
+                        <p class="font-semibold text-xl text-slate-900">${story.description}</p>
+                        <div>${story.content}</div>
+                    </div>
+
+                    ${story.gallery && story.gallery.length > 0 ? `
+                        <div class="pt-6 border-t border-slate-200">
+                            <h3 class="text-lg font-bold font-heading text-slate-900 mb-4"><i class="fa-solid fa-camera mr-2 text-akako-600"></i> Photo Gallery</h3>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                ${story.gallery.map(img => `
+                                    <div class="rounded-xl overflow-hidden shadow border border-slate-200 h-48">
+                                        <img src="${img}" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/800x600/064e3b/ffffff?text=Gallery+Photo'">
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    ` : ''}
+
+                    <div class="pt-6 border-t border-slate-200 flex flex-wrap gap-2 items-center">
+                        <span class="text-xs font-bold text-slate-500 uppercase mr-2">Tags:</span>
+                        ${story.tags ? story.tags.map(t => `<span class="bg-slate-100 text-slate-700 text-xs px-2.5 py-1 rounded-md font-medium">#${t}</span>`).join('') : ''}
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('articleModal').classList.remove('hidden');
+        }
+
+        function closeArticleModal() {
+            document.getElementById('articleModal').classList.add('hidden');
+        }
+
+        // ADMIN CMS FUNCTIONS
+        function openAdminModal() {
+            document.getElementById('adminModal').classList.remove('hidden');
+            renderAdminStoriesTable();
+            renderAdminSubsTable();
+        }
+
+        function closeAdminModal() {
+            document.getElementById('adminModal').classList.add('hidden');
+        }
+
+        function switchAdminTab(tabName) {
+            document.getElementById('adminTabStories').classList.add('hidden');
+            document.getElementById('adminTabNew').classList.add('hidden');
+            document.getElementById('adminTabSubs').classList.add('hidden');
+            document.getElementById('tabBtnStories').className = "pb-2 border-b-2 border-transparent text-slate-500 hover:text-slate-800 transition";
+            document.getElementById('tabBtnNew').className = "pb-2 border-b-2 border-transparent text-slate-500 hover:text-slate-800 transition";
+            document.getElementById('tabBtnSubs').className = "pb-2 border-b-2 border-transparent text-slate-500 hover:text-slate-800 transition";
+
+            if (tabName === 'stories') {
+                document.getElementById('adminTabStories').classList.remove('hidden');
+                document.getElementById('tabBtnStories').className = "pb-2 border-b-2 border-akako-500 text-akako-600 transition";
+                renderAdminStoriesTable();
+            } else if (tabName === 'new') {
+                document.getElementById('adminTabNew').classList.remove('hidden');
+                document.getElementById('tabBtnNew').className = "pb-2 border-b-2 border-akako-500 text-akako-600 transition";
+            } else if (tabName === 'subscribers') {
+                document.getElementById('adminTabSubs').classList.remove('hidden');
+                document.getElementById('tabBtnSubs').className = "pb-2 border-b-2 border-akako-500 text-akako-600 transition";
+                renderAdminSubsTable();
+            }
+        }
+
+        function renderAdminStoriesTable() {
+            const tbody = document.getElementById('adminStoriesTableBody');
+            if (!tbody) return;
+            tbody.innerHTML = appData.stories.map(s => `
+                <tr class="hover:bg-slate-50">
+                    <td class="p-3">
+                        <div class="font-bold text-slate-900 line-clamp-1">${s.title}</div>
+                        <div class="text-xs text-slate-500">${s.category} • ${s.date}</div>
+                    </td>
+                    <td class="p-3"><span class="bg-slate-100 text-slate-800 text-xs px-2 py-0.5 rounded font-semibold">${s.type}</span></td>
+                    <td class="p-3 text-xs text-slate-600">${s.country || 'Uganda'}</td>
+                    <td class="p-3 text-xs text-slate-600">${s.author}</td>
+                    <td class="p-3 text-right space-x-2">
+                        <button onclick="openArticle('${s.id}')" class="text-blue-600 hover:underline text-xs font-semibold">View</button>
+                        <button onclick="deleteStory('${s.id}')" class="text-red-600 hover:underline text-xs font-semibold">Delete</button>
+                    </td>
+                </tr>
+            `).join('');
+            updateAdminCounts();
+        }
+
+        function renderAdminSubsTable() {
+            const tbody = document.getElementById('adminSubsTableBody');
+            if (!tbody) return;
+            tbody.innerHTML = appData.subscribers.map((sub, idx) => `
+                <tr class="hover:bg-slate-50">
+                    <td class="p-3 text-xs text-slate-500">${idx + 1}</td>
+                    <td class="p-3 font-semibold text-slate-900">${sub.email}</td>
+                    <td class="p-3 text-xs text-slate-500">${sub.date}</td>
+                </tr>
+            `).join('');
+            updateAdminCounts();
+        }
+
+        function updateAdminCounts() {
+            const sCount = document.getElementById('adminStoryCount');
+            const subCount = document.getElementById('adminSubCount');
+            if (sCount) sCount.innerText = appData.stories.length;
+            if (subCount) subCount.innerText = appData.subscribers.length;
+        }
+
+        // Handle Image File Upload or Google Drive Link
+        function handleImageUpload(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('formImage').value = e.target.result;
+                    showToast('Image Uploaded', 'Computer image successfully attached to story.');
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        // Publish New Story
+        function handlePublishStory(event) {
+            event.preventDefault();
+            const id = 'story-' + Date.now();
+            const title = document.getElementById('formTitle').value;
+            const description = document.getElementById('formDesc').value;
+            const content = document.getElementById('formContent').value;
+            const type = document.getElementById('formType').value;
+            const category = document.getElementById('formCategory').value;
+            const country = document.getElementById('formCountry').value;
+            const image = document.getElementById('formImage').value;
+            const youtubeUrl = document.getElementById('formYoutube').value;
+            const galleryStr = document.getElementById('formGallery').value;
+            const author = document.getElementById('formAuthor').value;
+            const tagsStr = document.getElementById('formTags').value;
+            const isFeatured = document.getElementById('formFeatured').checked;
+
+            const gallery = galleryStr ? galleryStr.split(',').map(s => s.trim()).filter(Boolean) : [];
+            const tags = tagsStr ? tagsStr.split(',').map(s => s.trim()).filter(Boolean) : [category];
+
+            const newStory = {
+                id,
+                title,
+                description,
+                content: content.replace(/\n/g, '<br>'),
+                type,
+                category,
+                country,
+                image,
+                youtubeUrl,
+                gallery,
+                author,
+                date: new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }),
+                tags,
+                seoTitle: title + ' | Akako Media',
+                seoDescription: description,
+                featured: isFeatured
+            };
+
+            if (isFeatured) {
+                appData.stories.forEach(s => s.featured = false);
+            }
+
+            appData.stories.unshift(newStory);
+            saveAppData(appData);
+
+            showToast('Story Published Successfully!', `"${title}" is now live on Akako Media.`);
+            closeAdminModal();
+            renderCurrentView();
+            event.target.reset();
+        }
+
+        function deleteStory(id) {
+            if (confirm('Are you sure you want to delete this story?')) {
+                appData.stories = appData.stories.filter(s => s.id !== id);
+                saveAppData(appData);
+                renderAdminStoriesTable();
+                renderCurrentView();
+                showToast('Story Deleted', 'The story has been removed from the platform.');
+            }
+        }
+
+        // SUBSCRIBERS
+        function openSubscribeModal() {
+            document.getElementById('subscribeModal').classList.remove('hidden');
+        }
+
+        function closeSubscribeModal() {
+            document.getElementById('subscribeModal').classList.add('hidden');
+        }
+
+        function handleSubscribeSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById('subName').value;
+            const email = document.getElementById('subEmail').value;
+            appData.subscribers.push({ email, date: new Date().toISOString().split('T')[0] });
+            saveAppData(appData);
+            closeSubscribeModal();
+            showToast('Subscription Confirmed!', `Welcome to Akako Media It's Us, ${name}!`);
+            event.target.reset();
+        }
+
+        function handleHomeSubscribe() {
+            const input = document.getElementById('homeSubEmail');
+            const email = input.value.trim();
+            if (email && email.includes('@')) {
+                appData.subscribers.push({ email, date: new Date().toISOString().split('T')[0] });
+                saveAppData(appData);
+                showToast('Successfully Subscribed!', 'Check your inbox for Akako special reports and breaking news.');
+                input.value = '';
+            } else {
+                showToast('Invalid Email', 'Please enter a valid email address.', true);
+            }
+        }
+
+        function exportSubscribers() {
+            const csv = "data:text/csv;charset=utf-8," + ["Email,Date", ...appData.subscribers.map(s => `${s.email},${s.date}`)].join("\n");
+            const encodedUri = encodeURI(csv);
+            const link = document.createElement("a");
+            link.setAttribute("href", encodedUri);
+            link.setAttribute("download", "akako_subscribers.csv");
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            showToast('Export Complete', 'Subscribers list downloaded as CSV.');
+        }
+
+        function openPrivacyModal(e) {
+            e.preventDefault();
+            showToast('Privacy Policy', 'Akako Media respects your privacy and adheres to strict African and international data protection standards.');
+        }
+
+        function openTermsModal(e) {
+            e.preventDefault();
+            showToast('Terms of Service', 'All content published on Akako Media is protected by copyright and licensed for public journalistic consumption.');
+        }
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Toast Helper
+        function showToast(title, msg, isError = false) {
+            const toast = document.getElementById('toastNotification');
+            document.getElementById('toastTitle').innerText = title;
+            document.getElementById('toastMsg').innerText = msg;
+            const icon = document.getElementById('toastIcon');
+            if (isError) {
+                icon.className = "fa-solid fa-circle-exclamation text-red-500 text-xl";
+                toast.className = "fixed bottom-6 right-6 z-50 transform translate-y-0 opacity-100 transition-all duration-300 bg-akako-navy text-white px-6 py-3 rounded-xl shadow-2xl flex items-center space-x-3 border-l-4 border-red-500";
+            } else {
+                icon.className = "fa-solid fa-circle-check text-akako-500 text-xl";
+                toast.className = "fixed bottom-6 right-6 z-50 transform translate-y-0 opacity-100 transition-all duration-300 bg-akako-navy text-white px-6 py-3 rounded-xl shadow-2xl flex items-center space-x-3 border-l-4 border-akako-500";
+            }
+            setTimeout(() => {
+                toast.className = "fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 bg-akako-navy text-white px-6 py-3 rounded-xl shadow-2xl flex items-center space-x-3 border-l-4 border-akako-500";
+            }, 4000);
+        }
+    </script>
+</body>
+</html>
